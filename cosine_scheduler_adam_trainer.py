@@ -1,8 +1,9 @@
 from modules import *
+import numpy as np
 
 @dataclass
 class Args:
-    epochs: int = 20
+    epochs: int = 5
     lr: float = 3e-3
     batch_size: int = 64
     weight_decay: float = 1e-5
@@ -95,9 +96,9 @@ def main():
     torch.save(cosineschedule_model.model.state_dict(), "cosineschedule_model.pt")
 
     # save the loss
-    np.save("train_loss.npy", train_loss)
-    np.save("val_loss.npy", val_loss)
-    np.save("learning_rate.npy", learning_rate)
+    np.save("train_loss.npy", np.array(train_loss))
+    np.save("val_loss.npy", np.array(val_loss))
+    np.save("learning_rate.npy", np.array(learning_rate))
 
     print("Done!")
 
