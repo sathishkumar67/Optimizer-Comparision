@@ -97,6 +97,7 @@ def main():
     # save the loss
     np.save("train_loss.npy", train_loss)
     np.save("val_loss.npy", val_loss)
+    np.save("learning_rate.npy", learning_rate)
 
     print("Done!")
 
