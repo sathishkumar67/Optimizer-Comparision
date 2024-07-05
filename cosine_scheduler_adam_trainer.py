@@ -28,7 +28,6 @@ class CosineSchedule_Model(L.LightningModule):
     def training_step(self, batch, batch_idx):
         self.model.train()
         optimizer = self.optimizers()
-        optimizer.train()
         optimizer.zero_grad()
 
         # access the learning rates
@@ -54,7 +53,6 @@ class CosineSchedule_Model(L.LightningModule):
     def validation_step(self, batch, batch_idx):
         self.model.eval()
         optimizer = self.optimizers()
-        optimizer.eval()
         
         batch, label = batch
         out = self.model(batch)
