@@ -19,6 +19,7 @@ args = Args()
 
 train_loss = []
 val_loss = []
+learning_rate = []
 
 class CosineSchedule_Model(L.LightningModule):
     def __init__(self, model):
