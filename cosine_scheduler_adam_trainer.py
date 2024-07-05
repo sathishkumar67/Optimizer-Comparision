@@ -30,6 +30,9 @@ class CosineSchedule_Model(L.LightningModule):
         optimizer = self.optimizers()
         optimizer.train()
         optimizer.zero_grad()
+
+        # access the learning rates
+        learning_rate.append(optimizer.param_groups[0]['lr'])
         
         batch, label = batch
         out = self.model(batch)
