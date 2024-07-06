@@ -91,6 +91,9 @@ def main():
     np.save("val_loss.npy", np.array(val_loss))
 
     print("Done!")
+    
+    import shutil
+    shutil.rmtree('./data')
 
 if __name__ == "__main__":
     main()
