@@ -34,11 +34,12 @@ class CosineSchedule_Model(L.LightningModule):
 
         # access the learning rates
         learning_rate.append(optimizer.param_groups[0]['lr'])
+        print(optimizer.param_groups[0]['lr'])
         
         batch, label = batch
         out = self.model(batch)
         loss = F.cross_entropy(out, label)
-        train_loss.append(loss)
+        train_loss.append(loss.item())
         self.log("Train_Loss", loss, prog_bar=True)
 
         return loss
@@ -59,7 +60,7 @@ class CosineSchedule_Model(L.LightningModule):
         batch, label = batch
         out = self.model(batch)
         loss = F.cross_entropy(out, label)
-        val_loss.append(loss)
+        val_loss.append(loss.item())
         self.log("Val_Loss", loss, prog_bar=True)
 
         return loss
