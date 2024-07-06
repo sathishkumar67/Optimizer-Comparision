@@ -3,7 +3,7 @@ import numpy as np
 
 @dataclass
 class Args:
-    epochs: int = 5
+    epochs: int = 1
     lr: float = 3e-3
     batch_size: int = 64
     weight_decay: float = 1e-5
